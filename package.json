@@ -1,0 +1,23 @@
+{
+  "name": "strange-chicken",
+  "version": "1.0.0",
+  "description": "Express api.",
+  "main": "app.js",
+  "scripts": {
+    "test": "haha no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idhere703/strange-chicken.git"
+  },
+  "author": "Brandon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idhere703/strange-chicken/issues"
+  },
+  "homepage": "https://github.com/idhere703/strange-chicken#readme",
+  "dependencies": {
+    "ejs": "^2.5.1",
+    "express": "^4.14.0"
+  },
+}
