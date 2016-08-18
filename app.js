@@ -34,4 +34,9 @@ app.get('/addUser', (req, res) => {
 });
 
 //app.listen(process.env.PORT);
-app.listen(3000);
+var server = app.listen(3000, () => {
+  var port = server.address().port;
+  console.log('Example app listening at port %s', port);
+});
+
+module.exports = server;

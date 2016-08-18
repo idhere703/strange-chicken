@@ -4,7 +4,7 @@
   "description": "Express api.",
   "main": "app.js",
   "scripts": {
-    "test": "haha no"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "mongoose": "^4.5.9"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2",
+    "supertest": "^2.0.0"
   }
 }
