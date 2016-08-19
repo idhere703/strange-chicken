@@ -1,22 +1,22 @@
-var express = require('express');
-var app = express();
-var User = require('./models/User');
-var mongoose = require('mongoose');
+let express = require('express');
+let app = express();
+let User = require('./models/User');
+let mongoose = require('mongoose');
+let port = process.env.PORT ? process.env.PORT : 3000;
 
 app.get('/isRunning', (req, res) => {
   res.send('Running');
 });
 
-app.get('/addUser', (req, res) => {
-  // res.send('Hello World!');
+app.post('/addUser', (req, res) => {
   mongoose.connect('mongodb://localhost/test');
 
-  var db = mongoose.connection;
+  let db = mongoose.connection;
 
   db.on('error', console.error);
-  db.once('open', function() {
+  db.once('open', () => {
     // Create your schemas and models here.
-    var cindy = new User({
+    let cindy = new User({
       organization: {
           name: 'Cindys Somethings',
           orgId: 1
@@ -26,16 +26,18 @@ app.get('/addUser', (req, res) => {
       updated: new Date()
     });
 
-    cindy.save(function(err, thor) {
+    cindy.save((err, thor) => {
       if (err) return console.error(err);
+      db.close();
+      res.sendStatus(200);
       console.dir(cindy);
     });
   });
 });
 
-//app.listen(process.env.PORT);
-var server = app.listen(3000, () => {
-  var port = server.address().port;
+
+let server = app.listen(port, () => {
+  let port = server.address().port;
   console.log('Example app listening at port %s', port);
 });
 

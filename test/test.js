@@ -1,5 +1,5 @@
-var assert = require('assert');
-var request = require('supertest');
+let assert = require('assert');
+let request = require('supertest');
 
 function isRunning() {
   app.get('/isRunning', (req, res) => {
@@ -9,7 +9,7 @@ function isRunning() {
 
 describe('testing server running', function() {
 
-  var server;
+  let server;
   beforeEach(function () {
     server = require('.././app');
   });
