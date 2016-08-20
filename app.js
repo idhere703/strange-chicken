@@ -13,18 +13,17 @@ app.get('/isRunning', (req, res) => {
 });
 
 app.post('/addUser', (req, res) => {
-
   mongoose.connect('mongodb://localhost/test');
   let db = mongoose.connection;
   db.on('error', console.error);
   db.once('open', () => {
     let cindy = new User({
       organization: {
-          name: req.body.orgName,
-          orgId: req.body.orgId
+          name: req.body.orgName || "",
+          orgId: req.body.orgId || 0
       },
-      fullName: req.body.fullEmpName,
-      professionalTitle: req.body.empTitle,
+      fullName: req.body.fullEmpName || "",
+      professionalTitle: req.body.empTitle || "",
       updated: new Date()
     });
 
@@ -35,8 +34,6 @@ app.post('/addUser', (req, res) => {
       console.dir(cindy);
     });
   });
-
-
 });
 
 
