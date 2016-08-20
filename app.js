@@ -2,27 +2,29 @@ let express = require('express');
 let app = express();
 let User = require('./models/User');
 let mongoose = require('mongoose');
+let bodyParser = require('body-parser');
 let port = process.env.PORT ? process.env.PORT : 3000;
+
+app.use( bodyParser.json() ); // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/isRunning', (req, res) => {
   res.send('Running');
 });
 
 app.post('/addUser', (req, res) => {
+
   mongoose.connect('mongodb://localhost/test');
-
   let db = mongoose.connection;
-
   db.on('error', console.error);
   db.once('open', () => {
-    // Create your schemas and models here.
     let cindy = new User({
       organization: {
-          name: 'Cindys Somethings',
-          orgId: 1
+          name: req.body.orgName,
+          orgId: req.body.orgId
       },
-      fullName: 'Cindy Some',
-      professionalTitle: "CEO",
+      fullName: req.body.fullEmpName,
+      professionalTitle: req.body.empTitle,
       updated: new Date()
     });
 
@@ -33,6 +35,8 @@ app.post('/addUser', (req, res) => {
       console.dir(cindy);
     });
   });
+
+
 });
 
 
