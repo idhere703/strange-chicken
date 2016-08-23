@@ -7,6 +7,8 @@ function isRunning() {
   });
 }
 
+// Should let me know if the server is running.
+// Always document your tests. 
 describe('testing server running', function() {
 
   let server;
