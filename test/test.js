@@ -8,9 +8,8 @@ function isRunning() {
 }
 
 // Should let me know if the server is running.
-// Always document your tests. 
+// Always document your tests.
 describe('testing server running', function() {
-
   let server;
   beforeEach(function () {
     server = require('.././app');
