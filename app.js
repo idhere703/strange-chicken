@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
 let userUtils = require('./lib/userUtils');
+let orgUtils = require('./lib/orgUtils');
 let bodyParser = require('body-parser');
 let port = process.env.PORT ? process.env.PORT : 3000;
 
@@ -14,6 +15,10 @@ app.get('/isRunning', (req, res) => {
 app.post('/addUser', (req, res) => {
   userUtils.addUser(req, res);
 
+});
+
+app.post('/addOrg', (req, res) => {
+  orgUtils.addOrg(req, res);
 });
 
 
