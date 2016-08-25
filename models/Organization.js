@@ -1,6 +1,5 @@
 let mongoose = require('mongoose');
 let organizationSchema = new mongoose.Schema({
-    _id: Schema.Types.ObjectId,
     address: {
         address1: String,
         address2: String,
