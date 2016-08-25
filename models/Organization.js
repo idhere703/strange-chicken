@@ -11,5 +11,5 @@ let organizationSchema = new mongoose.Schema({
     rating: Number,
     employees: [Number]
 });
-let Organization = new mongoose.model('Organization', organizationSchema);
+let Organization = mongoose.model('Organization', organizationSchema);
 module.exports = Organization;
