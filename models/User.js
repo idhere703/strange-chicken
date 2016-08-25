@@ -1,7 +1,5 @@
 let mongoose = require('mongoose');
 let userSchema = new mongoose.Schema({
-
-    _id: Schema.Types.ObjectId,
     organization: {
         name: {
             type: String
