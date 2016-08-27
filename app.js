@@ -14,7 +14,6 @@ app.get('/isRunning', (req, res) => {
 
 app.post('/addUser', (req, res) => {
   userUtils.addUser(req, res);
-
 });
 
 app.post('/addOrg', (req, res) => {
