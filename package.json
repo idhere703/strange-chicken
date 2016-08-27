@@ -4,6 +4,7 @@
   "description": "Express api.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha"
   },
   "repository": {
