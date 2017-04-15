@@ -4,7 +4,7 @@ let userUtils = require('./lib/userUtils');
 let orgUtils = require('./lib/orgUtils');
 let postUtils = require('./lib/postUtils');
 let bodyParser = require('body-parser');
-let port = process.env.PORT ? process.env.PORT : 3000;
+let port = process.env.PORT ? process.env.PORT : 8100;
 
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({
