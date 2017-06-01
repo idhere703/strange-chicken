@@ -19,6 +19,10 @@ app.post('/addPost', (req, res) => {
   postUtils.addPost(req, res);
 });
 
+app.get('/getPosts', (req, res) => {
+  postUtils.getPosts(req, res);
+});
+
 app.post('/addUser', (req, res) => {
   userUtils.addUser(req, res);
 });
