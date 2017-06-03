@@ -27,6 +27,10 @@ app.get('/getPost/:postId', (req, res) => {
   postUtils.getPosts(req, res);
 });
 
+app.post('/updatePost', (req, res) => {
+  postUtils.updatePost(req, res);
+});
+
 app.post('/addUser', (req, res) => {
   userUtils.addUser(req, res);
 });
