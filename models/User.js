@@ -19,6 +19,10 @@ let userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    archived: {
+        type: Boolean,
+        default: false
+    }
 });
 let User = mongoose.model('User', userSchema);
 module.exports = User;
