@@ -62,6 +62,18 @@ app.post('/addUser', passport.authenticate('local'), (req, res) => {
   userUtils.addUser(req, res);
 });
 
+app.post('/removeUser', passport.authenticate('local'), (req, res) => {
+  userUtils.removeUser(req, res);
+});
+
+app.get('/getUser/:userId', passport.authenticate('local'), (req, res) => {
+  userUtils.getUser(req, res);
+});
+
+app.get('/getUsers', passport.authenticate('local'), (req, res) => {
+  userUtils.getUser(req, res);
+});
+
 app.post('/addOrg', passport.authenticate('local'), (req, res) => {
   orgUtils.addOrg(req, res);
 });
