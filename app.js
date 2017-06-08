@@ -42,6 +42,11 @@ app.get('/isRunning', (req, res) => {
   res.send('Running');
 });
 
+app.post('/login', (req, res) => passport.authenticate('local', {
+  successRedirect: '/isRunning',
+  failureRedirect: '/login',
+})(req, res));
+
 app.post('/addPost', passport.authenticate('local'), (req, res) => {
   postUtils.addPost(req, res);
 });
@@ -58,7 +63,7 @@ app.post('/updatePost', passport.authenticate('local'), (req, res) => {
   postUtils.updatePost(req, res);
 });
 
-app.post('/addUser', passport.authenticate('local'), (req, res) => {
+app.post('/addUser', (req, res) => {
   userUtils.addUser(req, res);
 });
 
@@ -70,9 +75,11 @@ app.get('/getUser/:userId', passport.authenticate('local'), (req, res) => {
   userUtils.getUser(req, res);
 });
 
-app.get('/getUsers', passport.authenticate('local'), (req, res) => {
-  userUtils.getUser(req, res);
-});
+app.get('/getUsers',
+  // passport.authenticate('local'), 
+  (req, res) => {
+    userUtils.getUser(req, res);
+  });
 
 app.post('/addOrg', passport.authenticate('local'), (req, res) => {
   orgUtils.addOrg(req, res);
