@@ -75,11 +75,9 @@ app.get('/getUser/:userId', passport.authenticate('local'), (req, res) => {
   userUtils.getUser(req, res);
 });
 
-app.get('/getUsers',
-  // passport.authenticate('local'), 
-  (req, res) => {
-    userUtils.getUsers(req, res);
-  });
+app.get('/getUsers', passport.authenticate('local'), (req, res) => {
+  userUtils.getUsers(req, res);
+});
 
 app.post('/addOrg', passport.authenticate('local'), (req, res) => {
   orgUtils.addOrg(req, res);
