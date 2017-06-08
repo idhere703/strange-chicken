@@ -24,11 +24,13 @@ passport.use(new LocalStrategy(
         return done(err);
       }
       if (!user) {
+        console.log('No user');
         return done(null, false, {
           message: 'Incorrect username.'
         });
       }
       if (!user.validPassword(password)) {
+        console.log('Incorrect user password');
         return done(null, false, {
           message: 'Incorrect password.'
         });
