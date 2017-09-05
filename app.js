@@ -15,19 +15,17 @@ app.get('/isRunning', (req, res) => {
   res.send('Running');
 });
 
-app.post('/addPost', (req, res) => {
+app.get('/posts', (req, res) => {
+  postUtils.getPosts(req, res);
+}).post('/posts', (req, res) => {
   postUtils.addPost(req, res);
 });
 
-app.get('/getPosts', (req, res) => {
+app.get('/posts/:postId', (req, res) => {
   postUtils.getPosts(req, res);
 });
 
-app.get('/getPost/:postId', (req, res) => {
-  postUtils.getPosts(req, res);
-});
-
-app.post('/updatePost', (req, res) => {
+app.post('/posts/update', (req, res) => {
   postUtils.updatePost(req, res);
 });
 
