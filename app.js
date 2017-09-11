@@ -11,10 +11,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.get('/isRunning', (req, res) => {
-  res.send('Running');
-});
-
 app.get('/posts', (req, res) => {
   postUtils.getPosts(req, res);
 }).post('/posts', (req, res) => {
@@ -23,9 +19,7 @@ app.get('/posts', (req, res) => {
 
 app.get('/posts/:postId', (req, res) => {
   postUtils.getPosts(req, res);
-});
-
-app.post('/posts/update', (req, res) => {
+}).post('/posts/update', (req, res) => {
   postUtils.updatePost(req, res);
 });
 
