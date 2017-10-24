@@ -1,7 +1,6 @@
 let express = require('express');
 let app = express();
 let userUtils = require('./lib/userUtils');
-let orgUtils = require('./lib/orgUtils');
 let postUtils = require('./lib/postUtils');
 let commentUtils = require('./lib/commentUtils');
 let bodyParser = require('body-parser');
@@ -37,10 +36,6 @@ app.get('/getUser/:userId', (req, res) => {
 
 app.get('/getUsers', (req, res) => {
   userUtils.getUsers(req, res);
-});
-
-app.post('/addOrg', (req, res) => {
-  orgUtils.addOrg(req, res);
 });
 
 app.get('/getComment/:commentId', (req, res) => {

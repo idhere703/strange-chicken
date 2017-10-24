@@ -15,14 +15,6 @@ let userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    organization: {
-        name: {
-            type: String
-        },
-        orgId: {
-            type: Number
-        }
-    },
     fullName: String,
     professionalTitle: String,
     allowSearch: Boolean,
