@@ -1,5 +1,5 @@
-let mongoose = require('mongoose');
-let postSchema = new mongoose.Schema({
+const mongoose = require('mongoose');
+const postSchema = new mongoose.Schema({
     title: {
         type: String
     },
@@ -34,5 +34,5 @@ let postSchema = new mongoose.Schema({
     },
 });
 
-let Post = mongoose.model('Post', postSchema);
+const Post = mongoose.model('Post', postSchema);
 module.exports = Post;
