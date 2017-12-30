@@ -1,10 +1,12 @@
-let express = require('express');
-let app = express();
-let userUtils = require('./lib/userUtils');
-let postUtils = require('./lib/postUtils');
-let commentUtils = require('./lib/commentUtils');
-let bodyParser = require('body-parser');
-let port = process.env.PORT ? process.env.PORT : 8100;
+const express = require('express');
+const app = express();
+const userUtils = require('./lib/userUtils');
+const postUtils = require('./lib/postUtils');
+const commentUtils = require('./lib/commentUtils');
+const likeUtils = require('./lib/likeUtils');
+const dislikeUtils = require('./lib/dislikeUtils');
+const bodyParser = require('body-parser');
+const port = process.env.PORT ? process.env.PORT : 8100;
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({
   extended: true
@@ -50,6 +52,9 @@ app.post('/addComment', (req, res) => {
   commentUtils.addComment(req, res);
 });
 
+app.post('/addLike', (req, res) => {
+  likeUtils.addLike(req, res);
+});
 
 let server = app.listen(port, () => {
   let port = server.address().port;
